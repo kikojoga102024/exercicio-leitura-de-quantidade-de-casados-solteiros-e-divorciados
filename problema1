@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int main() {
+
+	int estadoCivil = 0;
+
+	double i, idadeSolteiro, idadeCasado, idadeDivorciado, solteiro, qtdSolteiro, qtdCasado, qtdDivorciado, mediaSolteiro, mediaCasado, mediaDivorciado;
+    qtdSolteiro = qtdCasado = qtdDivorciado = idadeSolteiro = idadeCasado = idadeDivorciado = mediaSolteiro = mediaCasado = mediaDivorciado = 0;
+	
+	
+	char resposta = 's';
+
+	while (resposta == 's') {
+
+		printf("Informe o estado civil: \n\n");
+		printf("1-Solteiro\n2-Casado\n3-Divorciado\n");
+		scanf_s("%d", &estadoCivil);
+
+		switch (estadoCivil) {
+
+		case 1:
+			printf("Informe a idade: ");
+			scanf_s("%lf", &i);
+			idadeSolteiro = idadeSolteiro + i;
+			qtdSolteiro++;
+			mediaSolteiro = idadeSolteiro / qtdSolteiro;
+			printf("Solteiro\n");
+			break;
+
+		case 2:
+			printf("Informe a idade: ");
+			scanf_s("%lf", &i);
+			idadeCasado = idadeCasado + i;
+			qtdCasado++;
+			mediaCasado = idadeCasado / qtdCasado;
+			printf("Casado\n");
+			break;
+
+		case 3:
+			printf("Informe a idade: ");
+			scanf_s("%lf", &i);
+			idadeDivorciado = idadeDivorciado + i;
+			qtdDivorciado++;
+			mediaDivorciado = idadeDivorciado / qtdDivorciado;
+			printf("Divorciado\n");
+			break;
+
+		default:
+			printf("Error\n");
+			break;
+
+		}
+		printf("Deseja incluir mais dados? ... \n");
+		resposta = _getche();
+		printf("\n\n");
+		system("cls");
+	}
+
+	printf("Quantidade solteiros = %.2lf\n", mediaSolteiro);
+	printf("Quantidade de casados = %.2lf\n", mediaCasado);
+	printf("Quantidade de divorciados = %.2lf\n", mediaDivorciado);
+
+	return 0;
+}
